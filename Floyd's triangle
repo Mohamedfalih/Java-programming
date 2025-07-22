@@ -1,0 +1,41 @@
+1.Write a Java program to print Floyd’s triangle for a given number of rows.
+
+java code:
+
+package Pattern;
+import java.util.Scanner;
+
+public class Floyds
+{
+
+	public static void main(String[] args)
+	{
+		int n;
+		int a=1,F=1;
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter the rows of Floyd's triangle");
+		n=s.nextInt();
+		while(a<=n)
+		{
+			int k=1;
+			while(k<=a)
+			{
+				System.out.print(F+" ");
+				F++;
+				k++;
+			}
+			System.out.print("\n");
+			a++;
+		}
+	}
+
+}
+
+OUTPUT:
+Enter the rows of Floyd's triangle
+4
+1 
+2 3 
+4 5 6 
+7 8 9 10 
+

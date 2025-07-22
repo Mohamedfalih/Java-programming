@@ -1,0 +1,104 @@
+package Calculator;
+import java.util.Scanner;
+public class Calc {
+
+	public static void main(String[] args) {
+		char repeat;
+		do {
+			int n1,n2,choice;
+			Scanner sc=new Scanner (System.in);
+			System.out.println("Calculator prorgram");
+			System.out.println("\n 1.Add \n 2.Sub \n 3.multiple \n 4.div");
+			System.out.println("\nEnter the choice: ");
+			choice=sc.nextInt();
+			
+			switch (choice)
+			{
+			case 1:
+				System.out.println("\nEnter 1st value: ");
+				n1=sc.nextInt();
+				System.out.println("\nEnter 2nd value: ");
+				n2=sc.nextInt();
+				System.out.println("\n n1 + n2 = "+ (n1+n2));
+				break;
+			case 2:
+				System.out.println("\nEnter 1st value: ");
+				n1=sc.nextInt();
+				System.out.println("\nEnter 2nd value: ");
+				n2=sc.nextInt();
+				System.out.println("\n n1 - n2 = "+ (n1-n2));
+				break;
+			case 3:
+				System.out.println("\nEnter 1st value: ");
+				n1=sc.nextInt();
+				System.out.println("\nEnter 2nd value: ");
+				n2=sc.nextInt();
+				System.out.println("\n n1 * n2 = "+ (n1*n2));
+				break;
+			case 4:
+				System.out.println("\nEnter 1st value: ");
+				n1=sc.nextInt();
+				System.out.println("\nEnter 2nd value: ");
+				n2=sc.nextInt();
+				System.out.println("\n n1 / n2 = "+ (n1/n2));
+				break;
+			default:
+				System.out.println("Invalid choice");
+				break;
+			}
+			
+			System.out.println("Do you want to continue(Y/N): ");
+			repeat=sc.next().charAt(0);
+		}while(repeat=='y'||repeat=='Y');
+		if(repeat=='n'||repeat=='N')
+		{
+			System.out.println("\n\nProgram terminated");
+		}
+
+	}
+
+}
+
+OUTPUT:
+
+Calculator prorgram
+
+ 1.Add 
+ 2.Sub 
+ 3.multiple 
+ 4.div
+
+Enter the choice: 
+1
+
+Enter 1st value: 
+2
+
+Enter 2nd value: 
+3
+
+ n1 + n2 = 5
+Do you want to continue(Y/N): 
+y
+Calculator prorgram
+
+ 1.Add 
+ 2.Sub 
+ 3.multiple 
+ 4.div
+
+Enter the choice: 
+4
+
+Enter 1st value: 
+10
+
+Enter 2nd value: 
+2
+
+ n1 / n2 = 5
+Do you want to continue(Y/N): 
+n
+
+
+Program terminated

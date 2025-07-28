@@ -1,3 +1,6 @@
+5. Implement the following Invoice Item class in Java according to the given
+UML class diagram:
+
 package Basics;
 
 public class InvoiceItem {
@@ -6,7 +9,8 @@ public class InvoiceItem {
 	private String desc;
 	private int qty;
 	private double unitPrice;
-	
+
+	//Constructor
 	public InvoiceItem(String id,String desc,int qty,double unitPrice)
 	{
 		this.id=id;
@@ -48,3 +52,26 @@ public class InvoiceItem {
 	}
 	
 }
+
+//Accessing class
+package Basics;
+
+public class MainInvoiceItem {
+	public static void main(String[] args) {
+		InvoiceItem a=new InvoiceItem("L09p","java book",2,200.50);
+		System.out.println("Book id = "+a.getId());
+		System.out.println(a.getDesc());
+		System.out.println("Quantity"+a.getqty());
+		System.out.println("Price of single book = "+a.getunitPrice());
+		System.out.println("Total is = "+a.getTotal());
+	}
+
+}
+
+OUTPUT:
+
+Book id = L09p
+java book
+Quantity2
+Price of single book = 200.5
+Total is = 401.0

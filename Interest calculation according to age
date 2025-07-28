@@ -32,11 +32,11 @@ public class Interest {
 		{
 			if(age >=1 && age <=58)
 			{
-				System.out.println("Interest is 8.2%");
+				System.out.print("Interest is 8.2%");
 			}
 			else if(age >= 59 && age <= 120)
 			{
-				System.out.println("Interest is 7.6%");
+				System.out.print("Interest is 7.6%");
 			}
 			else
 			{
@@ -47,11 +47,11 @@ public class Interest {
 		{
 			if(age >=1 && age <=60)
 			{
-				System.out.println("Interest is 9.2%");
+				System.out.print("Interest is 9.2%");
 			}
 			else if(age >= 61 && age <= 120)
 			{
-				System.out.println("Interest is 8.3%");
+				System.out.print("Interest is 8.3%");
 			}
 			else
 			{
@@ -62,7 +62,12 @@ public class Interest {
 		{
 			System.out.println("Gender is invalid : Enter (male or female)");
 		}
+		System.out.print(" For "+args[0]+" and the");
+		System.out.print(" Age is "+args[1]);
 	}
 
 }
 
+OUTPUT:
+
+Interest is 9.2% For male and the Age is 35

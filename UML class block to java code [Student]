@@ -1,0 +1,95 @@
+4. Implement the following Student class in Java according to the given UML
+class diagram:
+package STD;
+
+public class Student{
+	private int rollnumber;
+	private String name;
+	private String branch;
+	
+	public Student()
+	{
+		
+	}
+
+	//Constructor
+	public Student(int rollnumber,String name,String branch)
+	{
+		this.rollnumber=rollnumber;
+		this.name=name;
+		this.branch=branch;
+	}
+	public int getrollnumber()
+	{
+		return this.rollnumber;
+	}
+	public String getname()
+	{
+		return this.name;
+	}
+	public String getbranch()
+	{
+		return this.branch;
+	}
+	public void setrollnumber(int rollnumber)
+	{
+		this.rollnumber=rollnumber;
+	}
+	public void setname(String name)
+	{
+		this.name=name;
+	}
+	public void setbranch(String branch)
+	{
+		this.branch=branch;
+	}
+	public void displayinfo()
+	{
+		System.out.println("Name: "+this.name);
+		System.out.println("Roll no:  "+this.rollnumber);
+		System.out.println("Branch:  "+this.branch);
+	}
+
+}
+
+	//Accessing class
+package STD;
+
+public class MainStd {
+
+	public static void main(String[] args) {
+		Student s=new Student(329,"Mohamed Falih","ECE");
+		System.out.println("   Student 1");
+		s.displayinfo();
+		
+		s.setrollnumber(315);
+		s.setname("Guru");
+		s.setbranch("ECE");
+		System.out.println("\n   Student 2");
+		s.displayinfo();
+		
+		s.setrollnumber(320);
+		s.setname("Kailash");
+		s.setbranch("ECE");
+		System.out.println("\n   Student 3");
+		s.displayinfo();
+
+	}
+
+}
+
+OUTPUT:
+   Student 1
+Name: Mohamed Falih
+Roll no:  329
+Branch:  ECE
+
+   Student 2
+Name: Guru
+Roll no:  315
+Branch:  ECE
+
+   Student 3
+Name: Kailash
+Roll no:  320
+Branch:  ECE

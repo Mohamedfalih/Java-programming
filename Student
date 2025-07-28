@@ -1,0 +1,47 @@
+package STD;
+
+public class Student{
+	private int rollnumber;
+	private String name;
+	private String branch;
+	
+	public Student()
+	{
+		
+	}
+	public Student(int rollnumber,String name,String branch)
+	{
+		this.rollnumber=rollnumber;
+		this.name=name;
+		this.branch=branch;
+	}
+	public int getrollnumber()
+	{
+		return this.rollnumber;
+	}
+	public String getname()
+	{
+		return this.name;
+	}
+	public String getbranch()
+	{
+		return this.branch;
+	}
+	public void setrollnumber(int rollnumber)
+	{
+		this.rollnumber=rollnumber;
+	}
+	public void setname(String name)
+	{
+		this.name=name;
+	}
+	public void setbranch(String branch)
+	{
+		this.branch=branch;
+	}
+	public void displayinfo()
+	{
+		System.out.println("Name="+this.name+"Roll no= "+this.rollnumber+"Branch= "+this.branch);
+	}
+
+}

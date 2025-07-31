@@ -1,0 +1,190 @@
+QUESTION:
+3. Write a Java program to perform the following operations on a set of students
+using arrays:
+
+• Input and Display:
+Accept N students’ roll numbers and names. Store them in parallel
+arrays. Display the roll numbers and names as entered.
+
+• Remove Duplicates:
+Remove any duplicate roll numbers and their corresponding names.
+Display the unique list of students.
+
+• Search for a Student:
+Prompt the user to enter a roll number to search. If found in the unique
+list, print the student’s name and index; otherwise, print -1.
+
+• Display in Reverse Order:
+Display the unique students’ roll numbers and names in reverse order.
+
+
+JAVA CODE:
+
+package Array;
+import java.util.Scanner;
+public class SetOfStudents {
+	public static void main(String[] args) {
+		
+		Scanner in=new Scanner(System.in);
+		System.out.print("Enter the no.of Students: ");
+		int n=in.nextInt();
+		 
+		System.out.println();
+		int[] roll_no=new int[n];
+		String[] name=new String[n];
+		System.out.println("        Enter the student details");
+		System.out.println("First ==> Roll number");
+		System.out.println("Next ==> Name");
+		          //Getting input
+		
+		
+		for(int i=0;i<n;i++) 
+		{	
+			roll_no[i]=in.nextInt();
+			in.nextLine();
+            name[i] = in.nextLine();
+		}
+		           
+		
+		         //Display the input
+		
+		for(int j=0;j<n;j++)
+		{
+			System.out.println((j+1)+". Roll_no of Student : "+roll_no[j]);
+			System.out.println("   Name of the Student : "+ name[j]);
+			System.out.println();
+		}
+		           //Remove duplicate
+		       
+		int[] unique_roll=new int[n];
+		String[] unique_name=new String[n];
+		int ns=0;
+		for(int i=0;i<n;i++)
+		{
+			boolean dup=false;
+			for(int j=0;j<ns;j++)
+			{
+				if(roll_no[i]==unique_roll[j] || name[i]==unique_name[j]) {
+					dup=true;
+					break;
+				}
+			}
+			
+			if(!dup)
+			{
+				unique_roll[ns]=roll_no[i];
+				unique_name[ns]=name[i];
+				ns++;
+			}
+		}
+		         //Print Unique list of student
+		
+		System.out.println();
+		System.out.print("**Unique roll number : ");
+		for(int i=0;i<ns;i++)
+		{
+			System.out.print(unique_roll[i]+"  ");
+		}
+		System.out.println();
+		System.out.print("**Unique name : ");
+		for(int i=0;i<ns;i++)
+		{
+			System.out.print(unique_name[i]+"  ");
+		}
+		        //Search for the student
+		
+		System.out.println();
+		System.out.println("Enter the Roll number to find the Student : ");
+		int Search_roll=in.nextInt();
+		int flag =0;
+		for(int i=0;i<ns;i++)
+		{
+			if(Search_roll==unique_roll[i])
+			{
+				flag=1;
+				System.out.println("Name of the student is ["+unique_name[i]+"] index is ["+i+"]");
+			}
+			
+		}
+		if(flag==0)
+		{
+			System.out.println("-1");
+			System.out.println("Roll no "+Search_roll+" is not in the unique list");
+		}
+		
+		        //Display the reverse
+		
+		System.out.println();
+		System.out.println();
+		System.out.println("        Reverse order of the given list ");
+		for(int k=ns-1;k>=0;k--)
+		{
+			System.out.println((k+1)+". Roll_no of Student : "+unique_roll[k]);
+			System.out.println("   Name of Student : "+ name[k]);
+		}
+		
+	}
+
+}
+
+OUTPUT:
+
+Enter the no.of Students: 7
+
+        Enter the student details
+First ==> Roll number
+Next ==> Name
+101
+falih
+102
+guru
+103
+kailash
+104
+arshad
+105
+maharaja
+102
+villan
+104
+falih
+1. Roll_no of Student : 101
+   Name of the Student : falih
+
+2. Roll_no of Student : 102
+   Name of the Student : guru
+
+3. Roll_no of Student : 103
+   Name of the Student : kailash
+
+4. Roll_no of Student : 104
+   Name of the Student : arshad
+
+5. Roll_no of Student : 105
+   Name of the Student : maharaja
+
+6. Roll_no of Student : 102
+   Name of the Student : villan
+
+7. Roll_no of Student : 104
+   Name of the Student : falih
+
+
+**Unique roll number : 101  102  103  104  105  
+**Unique name : falih  guru  kailash  arshad  maharaja  
+Enter the Roll number to find the Student : 
+103
+Name of the student is [kailash] index is [2]
+
+
+        Reverse order of the given list 
+5. Roll_no of Student : 105
+   Name of Student : maharaja
+4. Roll_no of Student : 104
+   Name of Student : arshad
+3. Roll_no of Student : 103
+   Name of Student : kailash
+2. Roll_no of Student : 102
+   Name of Student : guru
+1. Roll_no of Student : 101
+   Name of Student : falih

@@ -1,0 +1,81 @@
+package Exp_2_1;
+public class Employee {
+	private int id;
+	private String name;
+	private String email;
+	private double salary;
+	
+	public Employee(int id,String name,String email,double salary)
+	{
+		this.id=id;
+		this.name=name;
+		this.email=email;
+		this.salary=salary;
+	}
+	
+	public int getId()
+	{
+		return id;
+	}
+	public String getName()
+	{
+		return name;
+	}
+	public String getEmail()
+	{
+		return email;
+	}
+	public double getSalary()
+	{
+		return salary;
+	}
+	public void raiseSalary(double percent)
+	{
+		System.out.println(salary + (salary * percent/100));
+	}
+	public String toString()
+	{
+		return "Employee Details : Id: "+id+", Name: "+name+", Email: "+email+", salary of the employee: "+salary;
+	}
+}
+
+
+package Exp_2_1;
+public class Manager {
+	private String dept;
+	private int teamSize;
+	private double bonus;
+	private String designation;
+	
+	public Manager(int id,String name,String email,double salary,String dept,int teamSize,double bonus,String designation)
+	{
+		this.dept=dept;
+		this.teamSize=teamSize;
+		this.bonus=bonus;
+		this.designation=designation;
+	}
+	public String getDept()
+	{
+		return dept;
+	}
+	public int getTeamSize()
+	{
+		return teamSize;
+	}
+	public double getBonus()
+	{
+		return bonus;
+	}
+	public String getDesignation()
+	{
+		return designation;
+	}
+	public void conductMeeting()
+	{
+		System.out.println();
+	}
+	public String toString()
+	{
+		return "hi";
+	}
+}

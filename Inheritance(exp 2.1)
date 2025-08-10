@@ -1,5 +1,6 @@
 package Exp_2_1;
-public class Employee {
+
+public class Employee {  //parent
 	private int id;
 	private String name;
 	private String email;
@@ -39,9 +40,8 @@ public class Employee {
 	}
 }
 
-
-package Exp_2_1;
-public class Manager {
+class Manager extends Employee {  //child
+	
 	private String dept;
 	private int teamSize;
 	private double bonus;
@@ -49,6 +49,8 @@ public class Manager {
 	
 	public Manager(int id,String name,String email,double salary,String dept,int teamSize,double bonus,String designation)
 	{
+		super(id,name,email,salary);
+		
 		this.dept=dept;
 		this.teamSize=teamSize;
 		this.bonus=bonus;
@@ -76,6 +78,41 @@ public class Manager {
 	}
 	public String toString()
 	{
-		return "hi";
+		return "Manager ["+super.toString()+"], Dept: "+dept+", TeamSize: "+teamSize+", Bonus: "+bonus+", Designation: "+designation;
 	}
 }
+
+//Accessing class
+
+package Exp_2_1;
+
+public class EmployeeTest {
+
+	public static void main(String[] args) {
+		Manager f = new Manager(329,"Falih","falih3261@gmail.com",50000,"Salesing",4,10000,"MD");
+		
+		System.out.println(f);
+		
+		System.out.println(f.getId());
+		System.out.println(f.getName());
+		System.out.println(f.getEmail());
+		System.out.println(f.getSalary());
+		System.out.println(f.getDept());
+		System.out.println(f.getTeamSize());
+		System.out.println(f.getBonus());
+		System.out.println(f.getDesignation());
+	}
+
+}
+
+OUTPUT:
+
+Manager [Employee Details : Id: 329, Name: Falih, Email: falih3261@gmail.com, salary of the employee: 50000.0], Dept: Salesing, TeamSize: 4, Bonus: 10000.0, Designation: MD
+329
+Falih
+falih3261@gmail.com
+50000.0
+Salesing
+4
+10000.0
+MD

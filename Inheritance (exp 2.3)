@@ -1,0 +1,48 @@
+package Exp_2_1;
+
+public class Media {
+	private String title;
+	private String author;
+	private String publicationDate;
+	
+	public Media(String title,String athour)
+	{
+		this.title=title;
+		this.author=author;
+	}
+	public Media(String title,String author,String publicationDate)
+	{
+		this(title,author);
+		this.publicationDate=publicationDate;
+	}
+	public void displayDetails()
+	{
+		System.out.println("title: "+title+"\nAuthor: "+author+"\nPublication Date: "+publicationDate);
+	}
+}
+
+class Book extends Media{
+	
+	private String genre;
+	private int pageCount;
+	
+	public Book(String title,String author,String genre)
+	{
+		super(title,author);
+		this.genre=genre;
+	}
+	public void displayDetails()
+	{
+		super.displayDetails();
+		System.out.println("genre: "+genre+"\nPage count: "+pageCount);
+	}
+	public String getGenre()
+	{
+		return genre;
+	}
+	public int getpageCount()
+	{
+		return pageCount;
+	}
+}
+

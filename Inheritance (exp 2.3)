@@ -7,6 +7,10 @@ public class Media
 		private String author;
 		private String publicationDate;
 		
+		public Media()
+		{
+			
+		}
 		public Media(String title,String athour)
 		{
 			this.title=title;
@@ -60,10 +64,61 @@ class Magazine extends Media
 			this.issueNumber=issueNumber;
 		}
 		
-		
+		public void displayDetails()
+		{
+			System.out.println("Issue Number: "+issueNumber);
+		}
+
+		public int getIssueNumber()
+		{
+			return issueNumber;
+		}
+
+		public String getPublisher()
+		{
+			return publisher;
+		}
+
 	}
 
 class Newspaper extends Media
 	{
-	
+		private String edition;
+		private String publisher;
+		
+		public Newspaper(String title,String author,int issueNuumber)
+		{
+			
+		}
+		public void displayDetails()
+		{
+			displayDetails();
+		}
+		public String getEdition()
+		{
+			return edition;
+		}
+		public String getPublisher()
+		{
+			return publisher;
+		}
+		
 	}
+
+        //Accessing class
+
+package Exp_2_3;
+
+public class MediaTest {
+
+	public static void main(String[] args) {
+		Media me = new Media("The Great Gatsby","F. Scott Fitzgerald","1925");
+		Book b = new Book("Java","James Gosling","Java is a high-level");
+		Magazine m = new Magazine("National Geographic","Various contributors",238);
+		Newspaper n = new Newspaper("The New York Times"," Various journalists",57896);
+		
+		
+
+	}
+
+}

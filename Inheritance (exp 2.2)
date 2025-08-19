@@ -1,0 +1,186 @@
+
+SOURCE CODE:
+
+package Exp_2_1;
+
+public class Course {
+	private String courseld;
+	private String title;
+	private String instructor;
+	private int duration;
+	
+	public Course(String courseld, String title, String instructor, int duration)
+	{
+		this.courseld=courseld;
+		this.title=title;
+		this.instructor=instructor;
+		this.duration=duration;
+	}
+	
+	public String getTitle()
+	{
+		return title;
+	}
+	
+	public String getInstructor()
+	{
+		return instructor;
+	}
+	
+	public int getDuration()
+	{
+		return duration;
+	}
+	
+	public String toString()
+	{
+		return "Courseld: "+courseld+"\nCourse Title: "+title+"\nInstructor: "+instructor+"\nDuration: "+duration+" days";
+	}
+	
+	public void showInfo()
+	{
+		System.out.println("Course Title: "+title);
+		System.out.println(" Insturctor: "+instructor);
+		System.out.println(" Duration: "+duration);
+	}
+
+}
+
+class OnlineCourse extends Course{
+	
+
+	private String platform;
+	private int accessDays;
+	private double videoHours;
+	private boolean hasCertificate;
+	
+	public OnlineCourse(String courseld, String title, String instructor, int duration,String platform,int accessDays,double videoHours,boolean hasCertificate)
+	{
+		super(courseld, title, instructor, duration);
+		this.platform=platform;
+		this.accessDays=accessDays;
+		this.videoHours=videoHours;
+		this.hasCertificate=hasCertificate;
+	}
+	
+	public void showPlatform()
+	{
+		System.out.println("Platform: "+platform);
+	}
+	
+	public double getVideoHours()
+	{
+		return videoHours;
+	}
+	
+	public boolean hasCert()
+	{
+		return hasCertificate;
+	}
+	
+	public int getAccessDays()
+	{
+		return accessDays;
+	}
+	
+	public String toString()
+	{
+		
+		return "Platform: "+platform+"\nAccessDays: "+accessDays+"\nVideo Hours: "+videoHours+" hours"+"\nHasCertificate: "+hasCertificate;
+	}
+}
+	
+class OfflineCourse extends Course
+{
+	private String classRoom;
+	private String schedule;
+	private int seatLimit;
+	private boolean materialsGiven;
+	
+	public OfflineCourse(String courseld, String title, String instructor, int duration, String classRoom, String schedule, int seatLimit, boolean materialsGiven)
+	{
+		super(courseld, title, instructor, duration);
+		this.classRoom=classRoom;
+		this.schedule=schedule;
+		this.seatLimit=seatLimit;
+		this.materialsGiven=materialsGiven;
+	}
+	
+	public void showClassRoom()
+	{
+		System.out.println("Class Room is: "+classRoom);
+	}
+	public String getSchedule()
+	{
+		return schedule;
+	}
+	public int getSeats()
+	{
+		return seatLimit;
+	}
+	public boolean hasMaterials()
+	{
+		return materialsGiven;
+	}
+	public String toString()
+	{
+		
+		return "ClassRoom: "+classRoom+"\nSchedule: "+schedule+"\nSeatLimit: "+seatLimit+"\nMaterialsGiven: "+materialsGiven;
+	}
+}
+
+//Main class
+package Exp_2_1;
+
+public class CourseTest {
+
+	public static void main(String[] args) {
+		
+		Course c = new Course("Software","Java","AP/IT",30);
+		OnlineCourse on=new OnlineCourse("Software","Java","Mam",10,"Infosys",15,7.45,true);
+		OfflineCourse off=new OfflineCourse("Software","Java","Mam",10,"E303","10 am -12 pm",63,true);
+		
+		
+		System.out.println("---Course Details---");
+		System.out.println();
+		System.out.println(c);
+		
+		System.out.println();
+		
+		System.out.println("---Online Course Details---");
+		System.out.println();
+		System.out.println(on);
+		
+		System.out.println();
+
+		System.out.println("---Offline Course Details---");
+		System.out.println();
+		System.out.println(off);
+		 
+	}
+
+}
+
+OUTPUT:
+
+---Course Details---
+
+courseld: Software
+Course Title: Java
+Instructor: AP/IT
+Duration: 30 days
+
+---Online Course Details---
+
+Platform: Infosys
+AccessDays: 15
+Video Hours: 7.45 hours
+HasCertificate: true
+
+---Offline Course Details---
+
+ClassRoom: E303
+Schedule: 10 am -12 pm
+SeatLimit: 63
+MaterialsGiven: true
+

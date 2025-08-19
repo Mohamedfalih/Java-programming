@@ -1,6 +1,8 @@
-package Exp_2_1;
+SOURCE CODE:
 
-public class Employee {  //parent
+package Exp_2_2;
+
+public class Employee {
 	private int id;
 	private String name;
 	private String email;
@@ -32,15 +34,16 @@ public class Employee {  //parent
 	}
 	public void raiseSalary(double percent)
 	{
-		System.out.println(salary + (salary * percent/100));
+		System.out.print("Raise salary: ");
+		System.out.println(salary + ((salary * percent)/100));
 	}
 	public String toString()
 	{
-		return "Employee Details : Id: "+id+", Name: "+name+", Email: "+email+", salary of the employee: "+salary;
+		return "Employee Details ==> Id: "+id+", Name: "+name+", Email: "+email+", salary of the employee: "+salary;
 	}
 }
 
-class Manager extends Employee {  //child
+class Manager extends Employee {
 	
 	private String dept;
 	private int teamSize;
@@ -74,17 +77,15 @@ class Manager extends Employee {  //child
 	}
 	public void conductMeeting()
 	{
-		System.out.println();
+		System.out.println("The Meeting is conduct on before today Evening");
 	}
 	public String toString()
 	{
-		return "Manager ["+super.toString()+"], Dept: "+dept+", TeamSize: "+teamSize+", Bonus: "+bonus+", Designation: "+designation;
+		return "Manager ["+super.toString()+"]\nDept: "+dept+"\nTeamSize: "+teamSize+"\nBonus: "+bonus+"\nDesignation: "+designation;
 	}
 }
-
-//Accessing class
-
-package Exp_2_1;
+//Main class
+package Exp_2_2;
 
 public class EmployeeTest {
 
@@ -92,27 +93,21 @@ public class EmployeeTest {
 		Manager f = new Manager(329,"Falih","falih3261@gmail.com",50000,"Salesing",4,10000,"MD");
 		
 		System.out.println(f);
+		System.out.println();
 		
-		System.out.println(f.getId());
-		System.out.println(f.getName());
-		System.out.println(f.getEmail());
-		System.out.println(f.getSalary());
-		System.out.println(f.getDept());
-		System.out.println(f.getTeamSize());
-		System.out.println(f.getBonus());
-		System.out.println(f.getDesignation());
+		f.raiseSalary(20);
+		f.conductMeeting();
+		
 	}
 
 }
 
 OUTPUT:
+Manager [Employee Details ==> Id: 329, Name: Falih, Email: falih3261@gmail.com, salary of the employee: 50000.0]
+Dept: Salesing
+TeamSize: 4
+Bonus: 10000.0
+Designation: MD
 
-Manager [Employee Details : Id: 329, Name: Falih, Email: falih3261@gmail.com, salary of the employee: 50000.0], Dept: Salesing, TeamSize: 4, Bonus: 10000.0, Designation: MD
-329
-Falih
-falih3261@gmail.com
-50000.0
-Salesing
-4
-10000.0
-MD
+Raise salary: 60000.0
+The Meeting is conduct on before today Evening

@@ -1,3 +1,6 @@
+
+SOURCE CODE:
+
 package Exp_2_3;
 
 public class Media 
@@ -7,11 +10,7 @@ public class Media
 		private String author;
 		private String publicationDate;
 		
-		public Media()
-		{
-			
-		}
-		public Media(String title,String athour)
+		public Media(String title,String author)
 		{
 			this.title=title;
 			this.author=author;
@@ -23,7 +22,9 @@ public class Media
 		}
 		public void displayDetails()
 		{
-			System.out.println("title: "+title+"\nAuthor: "+author+"\nPublication Date: "+publicationDate);
+			System.out.println("Title            : "+title);
+			System.out.println("Author           : "+author);
+			System.out.println("Publication Date : "+publicationDate);
 		}
 	}
 
@@ -33,15 +34,17 @@ class Book extends Media
 		private String genre;
 		private int pageCount;
 		
-		public Book(String title,String author,String genre)
+		public Book(String title,String author,String genre,int pageCount)
 		{
 			super(title,author);
 			this.genre=genre;
+			this.pageCount=pageCount;
 		}
 		public void displayDetails()
 		{
 			super.displayDetails();
-			System.out.println("genre: "+genre+"\nPage count: "+pageCount);
+			System.out.println("Genre            : "+genre);
+			System.out.println("Page Count       : "+pageCount);
 		}
 		public String getGenre()
 		{
@@ -58,7 +61,7 @@ class Magazine extends Media
 		private int issueNumber;
 		private String publisher;
 		
-		public Magazine(String title,String author,int issueNuumber)
+		public Magazine(String title,String author,int issueNumber)
 		{
 			super(title,author);
 			this.issueNumber=issueNumber;
@@ -66,7 +69,8 @@ class Magazine extends Media
 		
 		public void displayDetails()
 		{
-			System.out.println("Issue Number: "+issueNumber);
+			super.displayDetails();
+			System.out.println("Issue Number     : "+issueNumber);
 		}
 
 		public int getIssueNumber()
@@ -86,13 +90,18 @@ class Newspaper extends Media
 		private String edition;
 		private String publisher;
 		
-		public Newspaper(String title,String author,int issueNuumber)
+		public Newspaper(String title,String author,String publicationDate,String edition,String publisher)
 		{
+			super(title,author,publicationDate);
+			this.edition=edition;
+			this.publisher=publisher;
 			
 		}
 		public void displayDetails()
 		{
-			displayDetails();
+			super.displayDetails();
+			System.out.println("Edition          : "+edition);
+			System.out.println("Publisher        : "+publisher);
 		}
 		public String getEdition()
 		{
@@ -104,21 +113,67 @@ class Newspaper extends Media
 		}
 		
 	}
-
-        //Accessing class
+//Main class
 
 package Exp_2_3;
 
 public class MediaTest {
 
 	public static void main(String[] args) {
-		Media me = new Media("The Great Gatsby","F. Scott Fitzgerald","1925");
-		Book b = new Book("Java","James Gosling","Java is a high-level");
-		Magazine m = new Magazine("National Geographic","Various contributors",238);
-		Newspaper n = new Newspaper("The New York Times"," Various journalists",57896);
-		
-		
+		Media me = new Media("The Power of Habit","Charles Duhigg","February 28, 2012");
+		Book b = new Book("Atomic Habits","James Clear","Self-help / Personal Development",320);
+		Magazine m = new Magazine("National Geographic","Various contributors",3);
+		Newspaper n = new Newspaper("The Times of India","Various reporters","August 19, 2025","Delhi Edition","Bennett, Coleman & Co. Ltd.");
 
+		System.out.println("------MEDIA DETAILS------");
+		System.out.println();
+		me.displayDetails();
+		System.out.println();
+		
+		System.out.println("------BOOK DETAILS------");
+		System.out.println();
+		b.displayDetails();
+		System.out.println();
+		
+		System.out.println("------MAGAZINE DETAILS------");
+		System.out.println();
+		m.displayDetails();
+		System.out.println();
+		
+		System.out.println("------NEWSPAPER DETAILS------");
+		System.out.println();
+		n.displayDetails();
 	}
 
 }
+
+OUTPUT:
+
+------MEDIA DETAILS------
+
+Title            : The Power of Habit
+Author           : Charles Duhigg
+Publication Date : February 28, 2012
+
+------BOOK DETAILS------
+
+Title            : Atomic Habits
+Author           : James Clear
+Publication Date : null
+Genre            : Self-help / Personal Development
+Page Count       : 320
+
+------MAGAZINE DETAILS------
+
+Title            : National Geographic
+Author           : Various contributors
+Publication Date : null
+Issue Number     : 3
+
+------NEWSPAPER DETAILS------
+
+Title            : The Times of India
+Author           : Various reporters
+Publication Date : August 19, 2025
+Edition          : Delhi Edition
+Publisher        : Bennett, Coleman & Co. Ltd.

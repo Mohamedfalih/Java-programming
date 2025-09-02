@@ -1,0 +1,97 @@
+Write a Java program to perform the following operations on a given sentence
+using methods of String and StringBuffer class:
+• Print the total number of characters in the string.
+• Display the character at the 5th position.
+• Extract a part of the string from character 6 to 12 and print it.
+• Convert the string to all uppercase and all lowercase.
+• Remove any leading and trailing spaces from the string. 
+• Compare the string with another string both case-sensitively and case-
+insensitively.
+• Check if the string contains a specific word (e.g., "Fun").
+• Replace one word in the string with another (e.g., replace "Fun" with
+"Awesome").
+• Find the position of the word "is" in the string.
+• Break the string into words and print each word on a new line.
+
+SOURCE CODE:
+
+package Inheritance;
+
+public class StringOperations {
+	public static void main(String[] args) {
+        String sentence = "   Java Programming is Powerful and Versatile.   ";
+
+        // 1. Total number of characters
+        System.out.println("Original String: \"" + sentence + "\"");
+        System.out.println("Total characters: " + sentence.length());
+
+        // 2. Character at the 5th position (index 4, since indexing starts at 0)
+        if (sentence.length() >= 5) {
+            System.out.println("Character at 5th position: " + sentence.charAt(4));
+        }
+
+        // 3. Extract substring from 6 to 12
+        if (sentence.length() >= 12) {
+            System.out.println("Substring from 6 to 12: " + sentence.substring(5, 12));
+        }
+
+        // 4. Convert to uppercase and lowercase
+        System.out.println("Uppercase: " + sentence.toUpperCase());
+        System.out.println("Lowercase: " + sentence.toLowerCase());
+
+        // 5. Remove leading and trailing spaces
+        String trimmed = sentence.trim();
+        System.out.println("Trimmed string: \"" + trimmed + "\"");
+
+        // 6. Compare with another string
+        String another = "java programming is powerful and versatile.";
+        System.out.println("Case-sensitive comparison: " + trimmed.equals(another));
+        System.out.println("Case-insensitive comparison: " + trimmed.equalsIgnoreCase(another));
+
+        // 7. Check if string contains a word
+        System.out.println("Contains 'Powerful'?: " + trimmed.contains("Powerful"));
+
+        // 8. Replace word
+        String replaced = trimmed.replace("Powerful", "Amazing");
+        System.out.println("After replacement: " + replaced);
+
+        // 9. Find position of "is"
+        int pos = trimmed.indexOf("is");
+        System.out.println("Position of 'is': " + pos);
+
+        // 10. Break into words and print each
+        System.out.println("Words in the string:");
+        String[] words = trimmed.split(" ");
+        for (String word : words) {
+            System.out.println(word);
+        }
+
+        // Example of StringBuffer usage (append, insert, delete, etc.)
+        StringBuffer sb = new StringBuffer(trimmed);
+        sb.append(" Let's crab it!!!!");
+        System.out.println("StringBuffer example: " + sb);
+    }
+}
+
+OUTPUT:
+
+Original String: "   Java Programming is Powerful and Versatile.   "
+Total characters: 49
+Character at 5th position: a
+Substring from 6 to 12: va Prog
+Uppercase:    JAVA PROGRAMMING IS POWERFUL AND VERSATILE.   
+Lowercase:    java programming is powerful and versatile.   
+Trimmed string: "Java Programming is Powerful and Versatile."
+Case-sensitive comparison: false
+Case-insensitive comparison: true
+Contains 'Powerful'?: true
+After replacement: Java Programming is Amazing and Versatile.
+Position of 'is': 17
+Words in the string:
+Java
+Programming
+is
+Powerful
+and
+Versatile.
+StringBuffer example: Java Programming is Powerful and Versatile. Let's crab it!!!!

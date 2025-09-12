@@ -44,14 +44,25 @@ public class Courses {
         System.out.println("\nAfter Replacing the List at 5th Position: " + Courses);
 
         // Remove all course codes starting with "IT"
-        Courses.removeIf(code -> code.startsWith("IT"));
+        for (int i = 0; i < Courses.size(); i++)
+        {
+            if (Courses.get(i).startsWith("IT"))
+            {
+                Courses.remove(i);
+                i--; // adjust index after removal
+            }
+        }
+
         System.out.println("\nAfter Removing the Course Codes Starting with 'IT': " + Courses);
 
         // Search for "CS101"
         int pos = Courses.indexOf("CS101");
-        if (pos != -1) {
+        if (pos != -1)
+        {
             System.out.println("\nCS101 found at index: " + pos);
-        } else {
+        }
+        else
+        {
             System.out.println("\nCS101 NOT FOUND");
         }
 
@@ -63,9 +74,11 @@ public class Courses {
         if (Courses.isEmpty()) 
             System.out.println("EMPTY");
         else 
+        	System.out.print("\n Courses Separated by Commas: ");
              System.out.println(String.join(", ", Courses));
     }
 }
+
 
 OUTPUT:
 

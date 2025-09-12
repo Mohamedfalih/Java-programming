@@ -1,0 +1,82 @@
+1. Write a Java program to manage a list of 12 course codes (for example:
+CS101, IT203, AI302).
+• Add all course codes and display the list.
+• Replace the 5th course code with a new one and confirm the change.
+• Remove all course codes that begin with “IT”.
+• Search for CS101 and show its position if it exists, otherwise display “Not
+Found”.
+• Arrange the course codes in ascending order and display the sorted list.
+• Display all course codes together in a single line separated by commas.
+• If the list becomes empty, display the message “EMPTY”.
+
+SOURCE CODE:
+
+package Exp_5_1;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class Courses {
+
+    public static void main(String[] args) {
+
+        // Creating list of course codes
+        List<String> Courses = new ArrayList<>();
+        Courses.add("CS101");
+        Courses.add("IT202");
+        Courses.add("AI302");
+        Courses.add("EC204");
+        Courses.add("IT305");
+        Courses.add("CS202");
+        Courses.add("AI303");
+        Courses.add("EC604");
+        Courses.add("IT303");
+        Courses.add("AI404");
+        Courses.add("EC404");
+        Courses.add("IT505");
+
+        // Display Initial List
+        System.out.println("The Initial List: " + Courses);
+
+        // Replace the element at the 5th position (index 4)
+        Courses.set(4, "EC909");
+        System.out.println("\nAfter Replacing the List at 5th Position: " + Courses);
+
+        // Remove all course codes starting with "IT"
+        Courses.removeIf(code -> code.startsWith("IT"));
+        System.out.println("\nAfter Removing the Course Codes Starting with 'IT': " + Courses);
+
+        // Search for "CS101"
+        int pos = Courses.indexOf("CS101");
+        if (pos != -1) {
+            System.out.println("\nCS101 found at index: " + pos);
+        } else {
+            System.out.println("\nCS101 NOT FOUND");
+        }
+
+        // Sort the list in ascending order
+        Collections.sort(Courses);
+        System.out.println("\nSorted Course List: " + Courses);
+
+        // Display all course codes in a single line, separated by commas
+        if (Courses.isEmpty()) 
+            System.out.println("EMPTY");
+        else 
+             System.out.println(String.join(", ", Courses));
+    }
+}
+
+OUTPUT:
+
+The Initial List: [CS101, IT202, AI302, EC204, IT305, CS202, AI303, EC604, IT303, AI404, EC404, IT505]
+
+After Replacing the List at 5th Position: [CS101, IT202, AI302, EC204, EC909, CS202, AI303, EC604, IT303, AI404, EC404, IT505]
+
+After Removing the Course Codes Starting with 'IT': [CS101, AI302, EC204, EC909, CS202, AI303, EC604, AI404, EC404]
+
+CS101 found at index: 0
+
+Sorted Course List: [AI302, AI303, AI404, CS101, CS202, EC204, EC404, EC604, EC909]
+
+ Courses Separated by Commas: AI302, AI303, AI404, CS101, CS202, EC204, EC404, EC604, EC909

@@ -1,0 +1,145 @@
+SOURCE CODE:
+
+package Exp_5_2;
+
+public class Student implements Comparable<Student>{
+	private int rollNo;
+	private String name;
+	private int year;
+	private double cgpa;
+	
+	public Student(int rollNo, String name, int year, double cgpa)
+	{
+		this.rollNo = rollNo;
+		this.name = name;
+		this.year = year;
+		this.cgpa = cgpa;
+	}
+	
+	public int getRollNo()
+	{
+		return rollNo;
+	}
+	
+	public String getName()
+	{
+		return name;
+	}
+	
+	public int getYear()
+	{
+		return year;
+	}
+	
+	public double getCgpa()
+	{
+		return cgpa;
+	}
+
+	public void setYear(int year)
+	{
+		this.year = year;
+	}
+	
+	public void setCgpa(double cgpa)
+	{
+		this.cgpa = cgpa;
+	}
+	
+	public String toString()
+	{
+		return "[Name: "+name+", Roll no: "+rollNo+", Year: "+year+", CGPA: "+cgpa+"]";
+	}
+	
+	public int compareTo(Student s)
+	{
+		return this.name.compareTo(s.name);
+	}
+}
+
+
+
+package Exp_5_2;
+import java.util.*;
+
+class SortbyName implements Comparator<Student>
+{
+	@Override
+	public int compare(Student s1, Student s2) {
+		return s1.getName().compareTo(s2.getName());
+		
+	}
+}
+class SortbyCGPA implements Comparator<Student>
+{
+	@Override
+	public int compare(Student s1, Student s2) {
+		return Double.compare(s2.getCgpa(), s1.getCgpa());
+	}
+}
+public class TestHashSet {
+
+	public static void main(String[] args) {
+		Set<Student> set = new HashSet<>();
+
+		Student s1 = new Student(329,"falih",2,8.2);
+		Student s2 = new Student(315,"guru",3,9.2);
+		Student s3 = new Student(320,"kailash",1,8.7);
+		Student s4 = s2;
+		Student s5 = s1;
+		
+		set.add(s1);
+		set.add(s2);
+		set.add(new Student(206,"arshad",4,9.3));
+		set.add(s3);
+		set.add(s4);//duplicate
+		set.add(new Student(201,"abdul",3,8.9));
+		set.add(s5);//duplicate
+		
+		System.out.println(set.size());
+		
+		
+		List<Student> list = new ArrayList<>(set);
+		
+		//All students in alphabetical order of their names.
+		System.out.println("SORT BY NAME");
+		Collections.sort(list,new SortbyName());
+		for(Student st : list)
+		{
+			System.out.println(st);
+		}
+		
+		//Students of a particular year
+		Scanner sc = new Scanner(System.in);
+		int y=sc.nextInt();
+		for(int i=0;i<set.size();i++)
+		{
+			
+		}
+		//Top three students with the highest CGPA.
+		System.out.println("SORT BY CGPA");
+		
+		Collections.sort(list,new SortbyCGPA());
+		for(int i=0;i<3;i++)
+		{
+			System.out.println(list.get(i));
+		}
+	}
+
+}
+
+OUTPUT:
+
+5
+
+SORT BY NAME
+[Name: abdul, Roll no: 201, Year: 3, CGPA: 8.9]
+[Name: arshad, Roll no: 206, Year: 4, CGPA: 9.3]
+[Name: falih, Roll no: 329, Year: 2, CGPA: 8.2]
+[Name: guru, Roll no: 315, Year: 3, CGPA: 9.2]
+[Name: kailash, Roll no: 320, Year: 1, CGPA: 8.7]
+
+SORT BY CGPA
+[Name: arshad, Roll no: 206, Year: 4, CGPA: 9.3]
+[Name: guru, Roll no: 315, Year: 3, CGPA: 9.2]
+[Name: abdul, Roll no: 201, Year: 3, CGPA: 8.9]

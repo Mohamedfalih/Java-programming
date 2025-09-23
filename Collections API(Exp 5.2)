@@ -2,7 +2,7 @@ SOURCE CODE:
 
 package Exp_5_2;
 
-public class Student implements Comparable<Student>{
+public class Student {
 	private int rollNo;
 	private String name;
 	private int year;
@@ -50,16 +50,12 @@ public class Student implements Comparable<Student>{
 	{
 		return "[Name: "+name+", Roll no: "+rollNo+", Year: "+year+", CGPA: "+cgpa+"]";
 	}
-	
-	public int compareTo(Student s)
-	{
-		return this.name.compareTo(s.name);
-	}
 }
 
 
 
 package Exp_5_2;
+
 import java.util.*;
 
 class SortbyName implements Comparator<Student>
@@ -96,13 +92,14 @@ public class TestHashSet {
 		set.add(new Student(201,"abdul",3,8.9));
 		set.add(s5);//duplicate
 		
+		System.out.print("No.of Elements in the Set : ");
 		System.out.println(set.size());
 		
 		
 		List<Student> list = new ArrayList<>(set);
 		
 		//All students in alphabetical order of their names.
-		System.out.println("SORT BY NAME");
+		System.out.println("=======ALPHABETICAL ORDER=======");
 		Collections.sort(list,new SortbyName());
 		for(Student st : list)
 		{
@@ -111,13 +108,18 @@ public class TestHashSet {
 		
 		//Students of a particular year
 		Scanner sc = new Scanner(System.in);
+		System.out.print("\nEnter the Year to be Search : ");
 		int y=sc.nextInt();
-		for(int i=0;i<set.size();i++)
+		System.out.println("\nThe Below Students are "+y+" Year.\n");
+		Iterator<Student> it = list.iterator();
+		while(it.hasNext())
 		{
-			
+			Student s = it.next();
+			if(s.getYear()==y)
+				System.out.println(s);
 		}
 		//Top three students with the highest CGPA.
-		System.out.println("SORT BY CGPA");
+		System.out.println("\n=======TOP 3 CGPA IN THE SET=======");
 		
 		Collections.sort(list,new SortbyCGPA());
 		for(int i=0;i<3;i++)
@@ -130,16 +132,21 @@ public class TestHashSet {
 
 OUTPUT:
 
-5
-
-SORT BY NAME
+No.of Elements in the Set : 5
+=======ALPHABETICAL ORDER=======
 [Name: abdul, Roll no: 201, Year: 3, CGPA: 8.9]
 [Name: arshad, Roll no: 206, Year: 4, CGPA: 9.3]
 [Name: falih, Roll no: 329, Year: 2, CGPA: 8.2]
 [Name: guru, Roll no: 315, Year: 3, CGPA: 9.2]
 [Name: kailash, Roll no: 320, Year: 1, CGPA: 8.7]
 
-SORT BY CGPA
+Enter the Year to be Search : 1
+
+The Below Students are 1 Year.
+
+[Name: kailash, Roll no: 320, Year: 1, CGPA: 8.7]
+
+=======TOP 3 CGPA IN THE SET=======
 [Name: arshad, Roll no: 206, Year: 4, CGPA: 9.3]
 [Name: guru, Roll no: 315, Year: 3, CGPA: 9.2]
 [Name: abdul, Roll no: 201, Year: 3, CGPA: 8.9]

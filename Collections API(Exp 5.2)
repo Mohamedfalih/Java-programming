@@ -126,6 +126,18 @@ public class TestHashSet {
 		{
 			System.out.println(list.get(i));
 		}
+
+		//Display the name of the students
+		
+		System.out.println("\n=======NAME OF THE STUDENTS IN INSERTION ORDER=======");
+		
+		for(Student name : set)
+		{
+			if(name.getName()==null)
+				System.out.println("Empty name is not allowed");
+			
+			System.out.println(name.getName());
+		}
 	}
 
 }
@@ -133,20 +145,28 @@ public class TestHashSet {
 OUTPUT:
 
 No.of Elements in the Set : 5
+
 =======ALPHABETICAL ORDER=======
-[Name: abdul, Roll no: 201, Year: 3, CGPA: 8.9]
-[Name: arshad, Roll no: 206, Year: 4, CGPA: 9.3]
-[Name: falih, Roll no: 329, Year: 2, CGPA: 8.2]
-[Name: guru, Roll no: 315, Year: 3, CGPA: 9.2]
-[Name: kailash, Roll no: 320, Year: 1, CGPA: 8.7]
+[Name: Abdul, Roll no: 201, Year: 3, CGPA: 8.9]
+[Name: Arshad, Roll no: 206, Year: 4, CGPA: 9.3]
+[Name: Falih, Roll no: 329, Year: 2, CGPA: 8.2]
+[Name: Guru, Roll no: 315, Year: 3, CGPA: 9.2]
+[Name: Kailash, Roll no: 320, Year: 1, CGPA: 8.7]
 
-Enter the Year to be Search : 1
+Enter the Year to be Search : 2
 
-The Below Students are 1 Year.
+The Below Students are 2 Year.
 
-[Name: kailash, Roll no: 320, Year: 1, CGPA: 8.7]
+[Name: Falih, Roll no: 329, Year: 2, CGPA: 8.2]
 
 =======TOP 3 CGPA IN THE SET=======
-[Name: arshad, Roll no: 206, Year: 4, CGPA: 9.3]
-[Name: guru, Roll no: 315, Year: 3, CGPA: 9.2]
-[Name: abdul, Roll no: 201, Year: 3, CGPA: 8.9]
+[Name: Arshad, Roll no: 206, Year: 4, CGPA: 9.3]
+[Name: Guru, Roll no: 315, Year: 3, CGPA: 9.2]
+[Name: Abdul, Roll no: 201, Year: 3, CGPA: 8.9]
+
+=======NAME OF THE STUDENTS IN INSERTION ORDER=======
+Falih
+Guru
+Arshad
+Kailash
+Abdul

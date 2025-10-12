@@ -1,0 +1,200 @@
+SOURCE CODE:
+
+package Exp_5_3;
+
+public class StationaryItem {
+	
+	private String name;
+	private double price;
+	
+	public StationaryItem(String name, double price)
+	{
+		this.name = name;
+		this.price = price;
+	}
+
+	public double getPrice()
+	{
+		return price;
+	}
+
+	public void setPrice(double price) 
+	{
+		this.price = price;
+	}
+
+	public String getName()
+	{
+		return name;
+	}
+
+	@Override
+	public String toString()
+	{
+		return name +" = " +price+"  rupees";
+	}
+}
+
+package Exp_5_3;
+
+import java.util.*;
+
+class SortByName implements Comparator<StationaryItem>
+{
+	@Override
+	public int compare(StationaryItem s1, StationaryItem s2)
+	{
+		return s1.getName().compareTo(s2.getName());//ascending
+	}
+}
+
+class SortByPrice implements Comparator<StationaryItem>
+{
+	@Override
+	public int compare(StationaryItem s1, StationaryItem s2)
+	{
+		return Double.compare(s2.getPrice(), s1.getPrice());//descending
+	}
+}
+
+public class TestStationary {
+
+	public static void main(String[] args) {
+		
+		//Assign value to the items in the map
+		
+		Map <String,Double> map = new HashMap<>();
+		map.put("Pen", 10.0);
+		map.put("Notebook",45.0 );
+		map.put("Pencil", 5.0);
+		map.put("Marker", 25.0);
+		map.put("Eraser", 8.0);
+		map.put("Ruler", 15.0);
+		map.put("Highlighter", 30.0);
+		map.put("Stapler", 50.0);
+		
+		//Display all items,prices, and pairs
+		
+		System.out.println("Name of the Items : "+ map.keySet());
+		System.out.println("Prices of the Items : "+ map.values());
+		System.out.println("Item Name - Price pairs: "+ map);
+		
+		//Check Marker availability
+		
+		System.out.println("\nIs Marker in the list or not ? " + map.containsKey("Marker"));
+		
+		//Check if any items cost >=50
+		
+		boolean itemCost = false;
+		for(double price: map.values()) 
+		{
+			if(price >= 50)
+			{
+				itemCost = true;
+				break;
+			}
+		}
+		System.out.println("\nAny items cost >= 50 ? "+itemCost);
+		
+		//Increse theNoteBook Price by 10%
+		
+		map.put("Notebook", map.get("Notebook")*1.10);
+		
+		//Remove Ruler
+		
+		map.remove("Ruler");
+		System.out.println("\n----After Increasing the 'Notebook' price and Removing 'Ruler'----\n");
+		System.out.println(map);
+		
+		//Converting Map to list
+		
+		List<StationaryItem> itemList = new ArrayList<>();
+		for(Map.Entry<String, Double> entry: map.entrySet())
+		{
+			itemList.add(new StationaryItem(entry.getKey(),entry.getValue()));
+		}
+		
+		//Sort by Names
+		
+		Collections.sort(itemList, new SortByName());
+		System.out.println("\n======SORT BY NAME======\n");
+		for (StationaryItem list: itemList)
+		{
+			System.out.println(list);
+		}
+		
+		//Sort by prices
+		
+		Collections.sort(itemList, new SortByPrice());
+		System.out.println("\n======SORT BY PRICE======\n");
+		for (StationaryItem list: itemList)
+		{
+			System.out.println(list);
+		}
+		
+		//Find cheapest and costliest items
+		
+		double minPrice = Collections.min(map.values());
+		double maxPrice = Collections.max(map.values());
+		
+		System.out.println("\n====LOW COST ITEMS====");
+		for (StationaryItem cheap: itemList)
+		{
+			if(cheap.getPrice()==minPrice)
+			{
+				System.out.println(cheap);
+			}
+		}
+		
+		System.out.println("\n====COSTLY ITEMS====");
+		for (StationaryItem cost: itemList)
+		{
+			if(cost.getPrice()==maxPrice)
+			{
+				System.out.println(cost);
+			}
+		}
+		
+	}
+
+}
+
+OUTPUT:
+
+Name of the Items : [Notebook, Pen, Pencil, Marker, Stapler, Ruler, Eraser, Highlighter]
+Prices of the Items : [45.0, 10.0, 5.0, 25.0, 50.0, 15.0, 8.0, 30.0]
+Item Name - Price pairs: {Notebook=45.0, Pen=10.0, Pencil=5.0, Marker=25.0, Stapler=50.0, Ruler=15.0, Eraser=8.0, Highlighter=30.0}
+
+Is Marker in the list or not ? true
+
+Any items cost >= 50 ? true
+
+----After Increasing the 'Notebook' price and Removing 'Ruler'----
+
+{Notebook=49.50000000000001, Pen=10.0, Pencil=5.0, Marker=25.0, Stapler=50.0, Eraser=8.0, Highlighter=30.0}
+
+======SORT BY NAME======
+
+Eraser = 8.0  rupees
+Highlighter = 30.0  rupees
+Marker = 25.0  rupees
+Notebook = 49.50000000000001  rupees
+Pen = 10.0  rupees
+Pencil = 5.0  rupees
+Stapler = 50.0  rupees
+
+======SORT BY PRICE======
+
+Stapler = 50.0  rupees
+Notebook = 49.50000000000001  rupees
+Highlighter = 30.0  rupees
+Marker = 25.0  rupees
+Pen = 10.0  rupees
+Eraser = 8.0  rupees
+Pencil = 5.0  rupees
+
+====LOW COST ITEMS====
+Pencil = 5.0  rupees
+
+====COSTLY ITEMS====
+Stapler = 50.0  rupees
